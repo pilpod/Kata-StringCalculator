@@ -6,10 +6,16 @@ class StringCalculator {
 
     public array $numbList;
 
-    public function Add(string $number): int
+    public function Add(string $number)
     {
         if(!$number) {
             return 0;
+        }
+
+        $message = $this->isNegativeNumb($number);
+
+        if($message) {
+            return $message;
         }
 
         $regex = '/[\s,\;\/]+/';
@@ -19,6 +25,13 @@ class StringCalculator {
         $sum = array_sum($this->numbList);
 
         return $sum;
+    }
+
+    public function isNegativeNumb(string $numb)
+    {
+        if($numb < 0) {
+            return 'negatives not allowed, ' . $numb;
+        }
     }
 
 }

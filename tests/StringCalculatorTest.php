@@ -61,6 +61,15 @@ class StringCalculatorTest extends TestCase {
         $this->assertEquals(3, $response);
     }
 
+    public function test_stringCalculator_return_an_error_with_negative_numb()
+    {
+        $stringCalcul = new StringCalculator();
+
+        $response = $stringCalcul->Add("-1");
+
+        $this->assertEquals('negatives not allowed, -1', $response);
+    }
+
 
 }
 
