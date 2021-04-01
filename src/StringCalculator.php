@@ -12,7 +12,7 @@ class StringCalculator {
             return 0;
         }
 
-        $regex = '/[\s,]+/';
+        $regex = '/[\s,\;\/]+/';
 
         $this->numbList = preg_split($regex, $number);
 
