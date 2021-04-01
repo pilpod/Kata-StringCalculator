@@ -3,6 +3,7 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
+use App\StringCalculator;
 
 class ExampleTest extends TestCase {
 
