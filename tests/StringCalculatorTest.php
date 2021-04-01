@@ -43,6 +43,24 @@ class StringCalculatorTest extends TestCase {
         $this->assertEquals(173, $response);
     }
 
+    public function test_stringCalculator_return_sum_using_number_separete_with_coma_or_space()
+    {
+        $stringCalcul = new StringCalculator();
+
+        $response = $stringCalcul->Add("1\n2,3");
+
+        $this->assertEquals(6, $response);
+    }
+
+    public function test_stringCalculator_return_sum_using_number_support_different_delimiters()
+    {
+        $stringCalcul = new StringCalculator();
+
+        $response = $stringCalcul->Add("//;\n1;2");
+
+        $this->assertEquals(3, $response);
+    }
+
 
 }
 
