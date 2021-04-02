@@ -5,8 +5,8 @@ namespace Tests;
 use PHPUnit\Framework\TestCase;
 use App\StringCalculator;
 
-class StringCalculatorTest extends TestCase {
-
+class StringCalculatorTest extends TestCase
+{
     public function test_stringCalculator_return_zero()
     {
         $stringCalcul = new StringCalculator();
@@ -120,6 +120,14 @@ class StringCalculatorTest extends TestCase {
     }
 
 
+    public function test_handle_multiple_delimiters_with_length_longer_than_one()
+    {
+        $stringCalcul = new StringCalculator();
+
+        $response = $stringCalcul->Add("//[*][%]\n1*2%3");
+
+        $this->assertEquals(6, $response);
+    }
 }
 
 ?>
