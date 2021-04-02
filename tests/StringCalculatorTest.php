@@ -101,6 +101,15 @@ class StringCalculatorTest extends TestCase {
         $this->assertEquals(7, $response);
     }
 
+    public function test_Delimiters_can_be_of_any_length()
+    {
+        $stringCalcul = new StringCalculator();
+
+        $response = $stringCalcul->Add("//[***]\n1***2***3");
+
+        $this->assertEquals(6, $response);
+    }
+
 
 }
 
