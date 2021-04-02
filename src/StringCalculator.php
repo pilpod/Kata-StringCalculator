@@ -12,26 +12,35 @@ class StringCalculator {
             return 0;
         }
 
-        $message = $this->isNegativeNumb($number);
-
-        if($message) {
-            return $message;
-        }
-
         $regex = '/[\s,\;\/]+/';
 
         $this->numbList = preg_split($regex, $number);
+
+        $message = $this->hasNegativeNumb($this->numbList);
+
+        if($message) { return $message; }
 
         $sum = array_sum($this->numbList);
 
         return $sum;
     }
 
-    public function isNegativeNumb(string $numb)
+    public function hasNegativeNumb(array $list)
     {
-        if($numb < 0) {
-            return 'negatives not allowed, ' . $numb;
+        $negativesNumb = "";
+
+        foreach ($list as $numb) {
+            if($numb < 0) {
+                $negativesNumb .= $numb . ';';
+            }
         }
+
+        $negativesNumb = substr($negativesNumb, 0, -1);
+
+        if(strlen($negativesNumb) > 0) {
+            return 'negatives not allowed, ' . $negativesNumb;
+        }
+
     }
 
 }

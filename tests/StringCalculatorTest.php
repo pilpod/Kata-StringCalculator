@@ -70,6 +70,15 @@ class StringCalculatorTest extends TestCase {
         $this->assertEquals('negatives not allowed, -1', $response);
     }
 
+    public function test_stringCalculator_have_multiple_negative_numbers()
+    {
+        $stringCalcul = new StringCalculator();
+
+        $response = $stringCalcul->Add("-1;-5");
+
+        $this->assertEquals('negatives not allowed, -1;-5', $response);
+    }
+
 
 }
 
