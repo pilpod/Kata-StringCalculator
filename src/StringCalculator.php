@@ -5,12 +5,13 @@ namespace App;
 class StringCalculator {
 
     public array $numbList;
+    private int $addCount = 0;
 
     public function Add(string $number)
     {
-        if(!$number) {
-            return 0;
-        }
+        $this->addCount++;
+
+        if(!$number) { return 0; }
 
         $regex = '/[\s,\;\/]+/';
 
@@ -41,6 +42,13 @@ class StringCalculator {
             return 'negatives not allowed, ' . $negativesNumb;
         }
 
+    }
+
+    public function GetCalledCount()
+    {
+        $message = "Method Add() called {$this->addCount} times";
+
+        return $message;
     }
 
 }

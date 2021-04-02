@@ -79,6 +79,19 @@ class StringCalculatorTest extends TestCase {
         $this->assertEquals('negatives not allowed, -1;-5', $response);
     }
 
+    public function test_how_many_Add_is_invoked()
+    {
+        $stringCalcul = new StringCalculator();
+
+        $stringCalcul->Add('1');
+        $stringCalcul->Add('3');
+        $stringCalcul->Add('14');
+
+        $response = $stringCalcul->GetCalledCount();
+
+        $this->assertEquals('Method Add() called 3 times', $response);
+    }
+
 
 }
 
