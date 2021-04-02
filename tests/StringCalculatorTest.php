@@ -92,6 +92,15 @@ class StringCalculatorTest extends TestCase {
         $this->assertEquals('Method Add() called 3 times', $response);
     }
 
+    public function test_number_bigger_than_1000_should_be_ignored()
+    {
+        $stringCalcul = new StringCalculator();
+
+        $response = $stringCalcul->Add("2;1001;5;2000");
+
+        $this->assertEquals(7, $response);
+    }
+
 
 }
 

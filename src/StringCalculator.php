@@ -21,6 +21,8 @@ class StringCalculator {
 
         if($message) { return $message; }
 
+        $this->hasNumberBiggerThan1000($this->numbList);
+
         $sum = array_sum($this->numbList);
 
         return $sum;
@@ -44,11 +46,24 @@ class StringCalculator {
 
     }
 
-    public function GetCalledCount()
+    public function GetCalledCount(): string
     {
         $message = "Method Add() called {$this->addCount} times";
 
         return $message;
+    }
+
+    public function hasNumberBiggerThan1000(array $list): void
+    {
+        $validNumblist = array();
+
+        foreach ($list as $numb) {
+            if($numb < 1000) {
+                array_push($validNumblist, $numb);
+            }
+        }
+
+        $this->numbList = $validNumblist;
     }
 
 }
