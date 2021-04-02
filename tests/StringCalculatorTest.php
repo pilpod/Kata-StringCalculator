@@ -110,6 +110,15 @@ class StringCalculatorTest extends TestCase {
         $this->assertEquals(6, $response);
     }
 
+    public function test_allow_multiple_delimiters()
+    {
+        $stringCalcul = new StringCalculator();
+
+        $response = $stringCalcul->Add("//[*][%]\n1*2%3");
+
+        $this->assertEquals(6, $response);
+    }
+
 
 }
 
